@@ -1,25 +1,21 @@
-import logo from './logo.svg';
 import './App.css';
+import { useState } from 'react';
+// import Playlist from './components/Playlist';
+// import SearchResults from './components/SearchResults';
+import SearchBar from './components/SearchBar';
+import Tracklist from './components/Tracklist';
+import { songs } from './data.js';
 
-function App() {
+export default function App() {
+  const [query, setQuery] = useState(' ');
+
   return (
     <div className="App">
       <header className="App-header">
-        <img src={logo} className="App-logo" alt="logo" />
-        <p>
-          Edit <code>src/App.js</code> and save to reload.
-        </p>
-        <a
-          className="App-link"
-          href="https://reactjs.org"
-          target="_blank"
-          rel="noopener noreferrer"
-        >
-          Learn React
-        </a>
+        <h1>Jamming: Spotify Playlist Creator</h1>
+        <SearchBar query={query} setQuery={setQuery}/>
+        <Tracklist songs={songs}/> 
       </header>
     </div>
   );
-}
-
-export default App;
+};
